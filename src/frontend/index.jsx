@@ -96,7 +96,10 @@ function ControlModal({ framework, controlId, onClose, onLinked }) {
         {detail?.error && <SectionMessage appearance="warning"><Text>{detail.error}</Text></SectionMessage>}
         {ctl && (
           <Stack space="space.200">
-            <Inline space="space.100" alignBlock="center"><StatusLozenge status={ctl.status} /><Text>{ctl.reason}</Text></Inline>
+            <Stack space="space.050">
+              <Box><StatusLozenge status={ctl.status} /></Box>
+              <Text>{ctl.reason}</Text>
+            </Stack>
             <Text>{ctl.description}</Text>
             <Text>
               Expects: {ctl.expects.map((k) => (k === 'policy' ? 'a Confluence policy page' : 'completed Jira work')).join(' + ')}
@@ -238,20 +241,38 @@ function App() {
     .map((c) => ({
       key: c.id,
       cells: [
-        { key: 'id', content: <Text as="strong">{c.id}</Text> },
-        { key: 'title', content: c.title },
+        {
+          key: 'control',
+          content: (
+            <Stack space="space.025">
+              <Text as="strong">{c.id}</Text>
+              <Text>{c.title}</Text>
+            </Stack>
+          ),
+        },
         { key: 'status', content: <StatusLozenge status={c.status} /> },
-        { key: 'reason', content: c.reason },
-        { key: 'ev', content: String(c.evidence.length) },
-        { key: 'upd', content: fmtDate(c.lastUpdated) },
-        { key: 'act', content: <Button spacing="compact" onClick={() => setOpen(c.id)}>Details</Button> },
+        {
+          key: 'reason',
+          content: (
+            <Stack space="space.025">
+              <Text>{c.reason}</Text>
+              {c.evidence.length > 0 && (
+                <Text size="small" color="color.text.subtle">
+                  {c.evidence.length} item(s) · last updated {fmtDate(c.lastUpdated)}
+                </Text>
+              )}
+            </Stack>
+          ),
+        },
+        { key: 'act', content: <Button spacing="compact" onClick={() => setOpen(c.id)}>Open</Button> },
       ],
     }));
   const head = {
     cells: [
-      { key: 'id', content: 'Control' }, { key: 'title', content: 'Name' }, { key: 'status', content: 'Status' },
-      { key: 'reason', content: 'Why' }, { key: 'ev', content: 'Evidence' }, { key: 'upd', content: 'Last update' },
-      { key: 'act', content: '' },
+      { key: 'control', content: 'Control', width: 24 },
+      { key: 'status', content: 'Status', width: 14 },
+      { key: 'reason', content: 'Why', width: 48 },
+      { key: 'act', content: '', width: 14 },
     ],
   };
   const fwOptions = frameworks.map((f) => ({ label: `${f.short} (${f.count} controls)`, value: f.id }));
@@ -296,7 +317,8 @@ function App() {
                 <Box xcss={xcss({ width: '220px', paddingTop: 'space.150' })}>
                   <Select options={FILTERS} value={filter} onChange={setFilter} />
                 </Box>
-                <DynamicTable head={head} rows={rows} isLoading={loading} rowsPerPage={20}
+                <DynamicTable head={head} rows={rows} isLoading={loading} rowsPerPage={20} isFixedSize
+                  label="Compliance controls and their evidence status"
                   emptyView={<Text>Nothing here. Every control in this filter is covered.</Text>} />
               </Stack>
             </TabPanel>
