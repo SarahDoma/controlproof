@@ -67,7 +67,14 @@ src/frontend/index.jsx  UI Kit dashboard
 test/                   node:test unit tests
 ```
 
-## Run it
+## Install it (judges and testers)
+
+1. Open the **[ControlProof installation link](https://developer.atlassian.com/console/install/47b69b15-1c3a-4a59-a901-235cbe410fb7?signature=AYABeLkoGeU9i5yX%2F69jElqeNWYAAAADAAdhd3Mta21zAEthcm46YXdzOmttczp1cy13ZXN0LTI6NzA5NTg3ODM1MjQzOmtleS83MDVlZDY3MC1mNTdjLTQxYjUtOWY5Yi1lM2YyZGNjMTQ2ZTcAuAECAQB4CxqLTo9l4lqXuFjNim1xJM%2Bp%2F3TVP9xHS2BrU5DRRucB6f%2F3U3C%2FoETwyXFKs8l07AAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDC9JYCEfHi1qApEriAIBEIA7EYYFhSioaPIh9A3h5pCidl0KxYjzCL01p66meBUVjnWcW48LdMzBKOZMZYiU4KYUfknRKXfDV14s9oYAB2F3cy1rbXMAS2Fybjphd3M6a21zOmV1LXdlc3QtMTo3MDk1ODc4MzUyNDM6a2V5LzQ2MzBjZTZiLTAwYzMtNGRlMi04NzdiLTYyN2UyMDYwZTVjYwC4AQICAHi9bVMAkme4qVQX1fQHo6ePw3H40A7cGfz7yrmSfBWMXgFOlzdbHmfwcBoHB5oDFawCAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM5HWcjK%2BvXToCu6PdAgEQgDuQMsyW2KJWiyQsWdHiG5M0KZBs9VVQ3jF6ML%2FJ8q2AQ8%2FJK3PGDes5WWSutW2whxiSAA7boGtu%2FcnfWQAHYXdzLWttcwBLYXJuOmF3czprbXM6dXMtZWFzdC0xOjcwOTU4NzgzNTI0MzprZXkvNmMxMjBiYTAtNGNkNS00OTg1LWI4MmUtNDBhMDQ5NTJjYzU3ALgBAgIAeDYASx0XCjkny4iLV6vz%2BKtEGSGT6kdt0QRpkn6D%2FlVEAddqQYdJGVokOGxc1o35q00AAAB%2BMHwGCSqGSIb3DQEHBqBvMG0CAQAwaAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAw95iDd%2F1Fsqiga8woCARCAO8dtFeLjvXrMTbhZuHc45rrkAR4Sg42jEfdMFcECnBDLUDiErH6HOZ70B%2F8jF2nUdV%2FTDC1jFaIYeVF8AgAAAAAMAAAQAAAAAAAAAAAAAAAAAHnqGIbp0qJsZmSRSMDui7L%2F%2F%2F%2F%2FAAAAAQAAAAAAAAAAAAAAAQAAADIZt0n0ADuIdTTtdAuxsA2dZRI3g06gEYIVKss88Lw7c6ulBMHRRFK69t5313t8y5VqFfQ%2Fxc0gDGNvLuDnDGtJMw4%3D&product=confluence&product=jira)**. You must be an admin of the site.
+2. Install on a site that has **both Jira and Confluence**.
+3. In Jira, open **Apps, then ControlProof**. Go to **Settings**, click **Add sample evidence**, then click **Refresh**.
+4. In Rovo chat, choose the **ControlProof Auditor** agent and ask "Are we audit-ready for ISO 27001?"
+
+## Run it (developers)
 
 Requirements:
 - Node.js 22.23.4 or later (or 24.22.1 or later)
